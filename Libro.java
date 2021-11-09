@@ -14,6 +14,7 @@ public class Libro {
     private String titulo;
     private int numeroPaginas;
     private String numeroReferencia;
+    private int vecesPrestado;
 
     /**
      * Fija el autor y el titulo del libro a los dados como parametro
@@ -24,6 +25,7 @@ public class Libro {
         titulo = tituloLibro;
         numeroPaginas = numeroDePaginas;
         numeroReferencia = "";
+        vecesPrestado = 0;
     }
     
     /**
@@ -40,10 +42,24 @@ public class Libro {
     }
     
     /**
+     * Incrementa en uno el atributo vecesPrestado
+     */
+    public void prestar() {
+        vecesPrestado = vecesPrestado + 1;
+    }
+    
+    /**
      * Devuelve el número de referencia
      */
     public String getNumeroReferencia() {
         return numeroReferencia;
+    }
+    
+    /**
+     * Devuelve el número de veces que se ha prestado un número
+     */
+    public int getVecesPrestado() {
+        return vecesPrestado;
     }
     
     /**
@@ -90,6 +106,7 @@ public class Libro {
         System.out.println("Título: " + titulo);
         System.out.println("Autor: " + autor);
         System.out.println("Páginas: " + numeroPaginas);
+        System.out.println("Número de préstamos: " + vecesPrestado);
         if (numeroReferencia.length() == 0) {        
                 System.out.println("ZZZ");
                 System.out.println();
@@ -107,11 +124,11 @@ public class Libro {
     public String getDetalles() {
         String aDevolver;
         if (numeroReferencia.length() == 0) {        
-                aDevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", ZZZ";
+                aDevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Número de préstamos: " + vecesPrestado + ", ZZZ";
         }
             
         else {
-                aDevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Número de referencia: " + numeroReferencia;
+                aDevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Número de préstamos: " + vecesPrestado + ", Número de referencia: " + numeroReferencia;
         }
         return aDevolver;
     };

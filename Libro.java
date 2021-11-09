@@ -90,15 +90,15 @@ public class Libro {
         System.out.println("Título: " + titulo);
         System.out.println("Autor: " + autor);
         System.out.println("Páginas: " + numeroPaginas);
-        if (numeroReferencia != "") {        
-                System.out.println("Número de referencia: " + numeroReferencia);
-                System.out.println();
-            }
-            
-            else {
+        if (numeroReferencia.length() == 0) {        
                 System.out.println("ZZZ");
                 System.out.println();
-            }
+        }
+            
+        else {
+                System.out.println("Número de referencia: " + numeroReferencia);
+                System.out.println();
+        }
     }
     
     /**
@@ -106,13 +106,13 @@ public class Libro {
      */
     public String getDetalles() {
         String aDevolver;
-        if (numeroReferencia != "") {        
-                aDevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Número de referencia: " + numeroReferencia;
-            }
+        if (numeroReferencia.length() == 0) {        
+                aDevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", ZZZ";
+        }
             
-            else {
-                aDevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + " ZZZ";
-            }
+        else {
+                aDevolver = "Título: " + titulo + ", Autor: " + autor + ", Páginas: " + numeroPaginas + ", Número de referencia: " + numeroReferencia;
+        }
         return aDevolver;
     };
 }
